@@ -1,6 +1,6 @@
 
 from .models import News
-import requests,json
+import urllib.request, json
 
 News = News
 
