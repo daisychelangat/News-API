@@ -20,5 +20,7 @@ You can use code . or atom . to open it.
 
 #Support and contact details
  Reach me on email: daisyrop2000@gmail.com
+ 
+ LICENSE:https://github.com/daisychelangat/News-API/blob/main/LICENSE
 
 
