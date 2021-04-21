@@ -1,6 +1,6 @@
-
+import urllib.request,json
 from .models import News
-import urllib.request, json
+
 
 News = News
 
@@ -24,13 +24,20 @@ def get_news(category):
     get_news_url = base_url.format(category,api_key)
     print(get_news_url)
     
-    get_news_response = requests.get(get_news_url).json()
+    # get_news_response = requests.get(get_news_url).json()
+    with urllib.request.urlopen(get_news_url) as url:
+        get_news_data = url
+        get_news_response = json.load(get_news_data)
+        news_result = None
 
-        
+        if get_news_response["articles"]:
+            news_results_list = get_news_response["articles"]
+            news_results = process_results(news_results_list)
 
-    if get_news_response['articles']:
-        news_results_list = get_news_response['articles']
-        news_results = process_results(news_results_list)
+    return news_results
+    # if get_news_response['articles']:
+        # news_results_list = get_news_response['articles']
+        # news_results = process_results(news_results_list)
 
 
     
